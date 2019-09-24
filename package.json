@@ -1,0 +1,22 @@
+{
+  "name": "revenants_lfg",
+  "version": "1.0.0",
+  "description": "revenants discord lfg",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolasjavierp/revenants_lfg.git"
+  },
+  "author": "NJP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolasjavierp/revenants_lfg/issues"
+  },
+  "homepage": "https://github.com/nicolasjavierp/revenants_lfg#readme",
+  "devDependencies": {
+    "ws": "3.3.2"
+  }
+}

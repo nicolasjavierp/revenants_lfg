@@ -1,0 +1,8 @@
+{
+    "db": {
+        "location": "MONGO_DB_MLAB",
+        "user": "lfg_db_user",
+        "password": "lfg_db_password"
+    }
+    
+}

@@ -1,0 +1,6 @@
+{
+    "name": "Revenants LFG - Development",
+    "db": {
+        "host": "dev-db"
+    }
+}

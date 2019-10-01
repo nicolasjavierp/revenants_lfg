@@ -41,13 +41,6 @@ router.get('/:id', async (req, res) => {
     const lfg = await LFG.findById(req.params.id);
     if (!lfg) return res.status(404).send('LFG not found');
     res.send(lfg);
-    /*
-    const lfg = lfgs.find(l => l.id === parseInt(req.params.id)); 
-    // We can also use let (define a veriable to reset later) or var (same as let)
-    //if not found return 404
-    if (!lfg) return res.status(404).send('LFG not found');
-    res.send(lfg);
-    */
 });
 
 router.post('/', async (req, res) => {
@@ -63,7 +56,6 @@ router.post('/', async (req, res) => {
         participants: req.body.participants
     });
     lfg = await lfg.save();
-
     res.send(lfg);
 });
 
@@ -83,51 +75,12 @@ router.put('/:id', async (req, res) => {
 
     if (!lfg) return res.status(404).send('LFG not found');
     res.send(lfg);
-
-    /*
-    //Lookup LFG with id
-    //Not found 404
-    const lfg = lfgs.find(l => l.id === parseInt(req.params.id)); 
-    if (!lfg) return res.status(404).send('LFG not found');
-    
-    //Validate
-    //Not valid 400
-    //const result = validateLFG(req.body);
-    const { error } = validateLFG(req.body); // Same as above but i only need error property
-
-    //if (result.error) return res.status(400).send(result.error.details[0].message);
-    if (error) return res.status(400).send(error.details[0].message);
-
-    //Udate LFG
-    // Return updated LFG
-    //lfg.name = req.body.name;
-    lfg.creator_id = req.body.creator_id;
-    lfg.creator_btag = req.body.creator_btag;
-    lfg.activity = req.body.activity;
-    lfg.date = req.body.date;
-    lfg.time = req.body.time;
-    lfg.time_zone = req.body.time_zone;
-    res.send(lfg);
-    */
 });
 
 router.delete('/:id', async (req, res) => {
     const lfg = await LFG.findByIdAndRemove(req.params.id);
     if (!lfg) return res.status(404).send('LFG not found');
     res.send(lfg);
-    /*
-    //Find lfg
-    //Not Exists 404
-    const lfg = lfgs.find(l => l.id === parseInt(req.params.id)); 
-    if (!lfg) return res.status(404).send('LFG not found');
-
-    //Delete
-    const index = lfgs.indexOf(lfg);
-    lfgs.splice(index,1);
-
-    //Return the lfg
-    res.send(lfg);
-    */
 });
 
 function validateLFG(lfg){

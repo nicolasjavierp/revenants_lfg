@@ -62,3 +62,6 @@ typings/
 
 # Visual Studio code Workspace
 revenants_lfg.code-workspace
+
+#Temp File
+temp.txt

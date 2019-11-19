@@ -9,8 +9,8 @@ const express = require('express');
 const morgan = require('morgan')
 const moment = require('moment-timezone');
 const app = express();
-const lfgs = require('./lfgs/lfgs');
-const lfgs_types = require('./lfgs_types/lfgs_types');
+const lfgs = require('./routes/lfgs');
+const lfgs_types = require('./routes/lfgs_types');
 
 
 //CONFIG
@@ -19,7 +19,7 @@ generalDebugger('App Name: ' + config.get('name'));
 //generalDebugger('DB user: ' + config.get('db.user'));
 //generalDebugger('DB password: ' + config.get('db.password'));
 
-mongoose.connect(config.get('db.location'),{ useNewUrlParser: true })
+mongoose.connect(config.get('db.location'), {useUnifiedTopology: true, useNewUrlParser: true })
     .then(() => dbDebugger("Connected to MLAB db ..."))
     .catch(err => dbDebugger("Could not connect to MLAB db: "+err.message));
 

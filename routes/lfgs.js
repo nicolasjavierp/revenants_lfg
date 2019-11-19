@@ -1,5 +1,5 @@
 const {LFG, validate} = require('../models/LFG');
-const {LFG_TYPE} = require('../models/LFG_TYPE'); 
+//const {Activity} = require('../models/Activity'); 
 const express = require('express');
 const router = express.Router();
 
@@ -7,7 +7,7 @@ const generalDebugger = require('debug')('app:general');
 
 router.get('/', async (req, res) => {
     //const lfgs = await LFG.find().sort('date_time');
-    const lfgs = await LFG.find().populate('activity').sort('date_time');
+    const lfgs = await LFG.find().populate('activity_info').sort('date_time');
     res.send(lfgs);
 });
 
@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
     let lfg = new LFG({
         creator_id: req.body.creator_id,
         creator_btag: req.body.creator_btag,
-        activity: req.body.activity,
+        activity_info: req.body.activity_info,
         date: req.body.date,
         time: req.body.time,
         time_zone: req.body.time_zone,
@@ -40,7 +40,7 @@ router.put('/:id', async (req, res) => {
     const lfg = await LFG.findByIdAndUpdate(req.params.id, {
         creator_id : req.body.creator_id,
         creator_btag : req.body.creator_btag,
-        activity : req.body.activity,
+        activity_info : req.body.activity_info,
         date : req.body.date,
         time : req.body.time,
         time_zone : req.body.time_zone,

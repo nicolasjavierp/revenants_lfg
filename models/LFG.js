@@ -8,9 +8,9 @@ const lfgs_Schema = new mongoose.Schema({
     creator_id: {type: String, required: true},// Coding exclusive to Mongoose
     creator_btag: {type: String, required: true},
     //activity: {type: String, required: true},
-    activity: {
+    activity_info: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'LFGS_TYPES'
+        ref: 'Activities'
     },
     /*
     activity: {
@@ -39,7 +39,7 @@ function validateLFG(lfg){
     const schema = {
         creator_id: Joi.string().min(1),
         creator_btag: Joi.string().min(3),
-        activity: Joi.string().required(),
+        activity_info: Joi.string().required(),
         date: Joi.date().min('1-10-2019').iso(),
         time: Joi.string().min(3),
         time_zone: Joi.string().min(3),

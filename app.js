@@ -10,7 +10,7 @@ const morgan = require('morgan')
 const moment = require('moment-timezone');
 const app = express();
 const lfgs = require('./routes/lfgs');
-const lfgs_types = require('./routes/lfgs_types');
+const activities = require('./routes/activities');
 
 
 //CONFIG
@@ -32,7 +32,7 @@ app.use(express.urlencoded({extended:true})); // Parse req.body to x-www-form-ur
 app.use(helmet());
 app.use(express.static('public'));
 app.use('/api/lfgs', lfgs);
-app.use('/api/lfgs_types', lfgs_types);
+app.use('/api/activities', activities);
 //Apply First Custom middleware
 //app.use(first_middleware);
 /*
